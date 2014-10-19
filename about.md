@@ -13,3 +13,4 @@ Officially on paper, I'm a Civil Engineer (2010-2014) graduate from the Indian I
 I also contribute to Open Source, namely [Drupal](https://drupal.org) and [Moodle](https://moodle.org).
 
 Feel free to contact me.
+{% include svg-icons.html %}

@@ -33,6 +33,7 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
+    list-style: none;
 }
 
 
@@ -197,8 +198,5 @@ pre {
         height: 16px;
         vertical-align: middle;
 
-        path {
-            fill: $grey-color;
-        }
     }
 }
