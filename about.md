@@ -8,7 +8,7 @@ This is my personal website where I post random writings. I love fiddling with c
 
 Currently, I live in Gurgaon and work as a Software Engineer at [Zomato](https://zomato.com).
 
-Officially on paper, I'm a Civil Engineer (2010-2014) graduate from the Indian Institute of Technology Delhi, India.
+According to history, I graduated from Indian Institute of Technology Delhi, India after (somehow) managing to complete my Bachelors in Technology (Civil Engineering 2010-2014).
 
 I also contribute to Open Source, namely [Drupal](https://drupal.org) and [Moodle](https://moodle.org).
 

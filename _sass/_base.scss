@@ -98,8 +98,8 @@ a {
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+        color: $link-color;
+        text-decoration: none;
     }
 }
 
@@ -199,4 +199,9 @@ pre {
         vertical-align: middle;
 
     }
+}
+
+.icon_apple {
+    position: relative;
+    top: -3px;
 }
