@@ -4,8 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+This is my personal website where I post random writings. I love fiddling with code, traveling and [photography](http://instagram.com/xan_ps).
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+Currently, I live in Gurgaon and work as a Software Engineer at [Zomato](https://zomato.com).
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+Officially on paper, I'm a Civil Engineer (2010-2014) graduate from the Indian Institute of Technology Delhi, India.
+
+I also contribute to Open Source, namely [Drupal](https://drupal.org) and [Moodle](https://moodle.org).
+
+Feel free to contact me.
