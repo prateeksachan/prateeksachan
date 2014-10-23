@@ -3,7 +3,9 @@ layout: post
 title:  "Deleting Solr Index in Global Search"
 date:   2013-06-20 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 
 I implemented the functionality of allowing the <code>admin</code> to delete solr index recently. The code can be seen [here][code-link].

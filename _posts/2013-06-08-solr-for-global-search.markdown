@@ -3,7 +3,10 @@ layout: post
 title:  "Solr for Global Search"
 date:   2013-06-08 15:12:00
 categories: gsoc-2013
-tags: moodle solr pecl
+tags: 
+- moodle
+- solr
+- pecl
 ---
 This week I got started integrating search into Moodle core [writing code][writing-code]  for search within Moodle's page module. I decided to quickly pick a module and test Solr with it. Things become easy when you actually do stuff and see it happening infront of you. This also gave me the advantage of laying down the search API structure. Thanks to my mentor Aparup on guiding me with it.
 

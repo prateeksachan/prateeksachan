@@ -3,7 +3,9 @@ layout: post
 title:  "Handling security in Global Search"
 date:   2013-06-16 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 Handling security issues will be an integral part of Global Search. Last thing we want is users getting access to prohibited records through search. It will be a huge blow to the project if users get access to documents that they are not premissible to view. For this, the solution will be to filter the results after receiving the XML format of the query response from the solr server.
 

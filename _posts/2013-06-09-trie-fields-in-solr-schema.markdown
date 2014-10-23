@@ -3,7 +3,10 @@ layout: post
 title:  "Trie fields in Solr Schema"
 date:   2013-06-09 15:12:00
 categories: gsoc-2013
-tags: moodle solr trie
+tags: 
+- moodle
+- solr
+- trie
 ---
 Well this particular post is dedicated to Data Structures. It will be the first time I would be implementing <code>Trie</code> in real-life situations (apart from the college assignments), hence I thought that a post was in immediate order.
 

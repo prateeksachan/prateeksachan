@@ -3,7 +3,9 @@ layout: post
 title:  "Global Search API"
 date:   2013-06-30 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 
 This week I started off starting the Search API functions for Global Search. The idea is to code 3 functions for each module. These will be written in the module's <code>lib.php</code> file.

@@ -3,7 +3,9 @@ layout: post
 title:  "Global Search Prototype v1.0"
 date:   2013-08-02 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 
 These past days I've been busy trying to come up with a working product with the features that I'd earlier planned to include in this version of Global Search.

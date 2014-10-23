@@ -3,7 +3,9 @@ layout: post
 title:  "GSoC at Moodle!"
 date:   2013-05-28 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 The GSoC results were announced yesterday. After weeks of anticipation, anxiety and horror (yes!) it was exhilirating to see my proposal for Global Search being accepted by [Moodle][moodle]. Two months of hard-work, sleepless nights, bunking lectures and screwing up my exams didn't go waste after all. No matter how much you try or work hard one is always pessimistic about the things that aren't under your own control.
 

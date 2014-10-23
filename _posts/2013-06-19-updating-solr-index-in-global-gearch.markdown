@@ -3,7 +3,9 @@ layout: post
 title:  "Updating Solr Index in Global Search"
 date:   2013-06-19 15:12:00
 categories: gsoc-2013
-tags: moodle solr
+tags: 
+- moodle
+- solr
 ---
 Previous week, I started coding the <code>admin</code> page for Global Search. Here are the three indexing configurations that I've planned to implement: 
 
