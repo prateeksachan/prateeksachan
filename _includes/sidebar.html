@@ -1,0 +1,16 @@
+<div class="sidebar rfloat">
+  {% include svg-icons.html %}
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  Categories:
+  {% for category in site.categories %}
+    <li><a name="{{ category | first }}">{{ category | first }}</a>
+      <ul>
+      {% for posts in category %}
+        {% for post in posts %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</div>

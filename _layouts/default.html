@@ -10,6 +10,9 @@
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
+        {% unless page.title == 'Archive' or page.title == 'Instagram' %}
+          {% include sidebar.html %}
+        {% endunless %}
       </div>
     </div>
 
