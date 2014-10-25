@@ -18,7 +18,7 @@ Solr provides a simple way of deleting indexing using <code>SolrClient::deleteBy
 
 The idea was to make the <code>admin</code> select the delete option: <code>All</code> or let the <code>admin</code> choose the modules. I made these options available to the <code>admin</code> through Moodle Quick Forms. Here is a code snippet:
 
-{% highlight php %}
+{% highlight php startinline%}
 class search_admin_form extends moodleform {
  
   function definition() {

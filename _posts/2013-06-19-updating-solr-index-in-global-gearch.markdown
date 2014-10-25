@@ -22,7 +22,7 @@ For updating index pertaining to update/change in a record, <code>solr</code> gi
 - Perform a partial update by re-indexing only that field which was updated.
 
 The first approach outlined above is pretty simple. The <code>iterator</code> will return a recordset having <code>timemodified</code> from a previous index run. And, those records will be accordingly re-indexed. [As implemented by my mentor Tomasz earlier. [See wiki][wiki].
-{% highlight php %}
+{% highlight php startinline %}
 function mod_get_search_iterator($from = 0) {
   global $DB;
   $sql = "SELECT id, modified FROM {mod_table} WHERE modified >= ? ORDER BY modified ASC";
@@ -42,7 +42,7 @@ Solr supports several modifiers that atomically update values of a document.
 
 However, there's no specific <code>PHP</code> approach of doing it but only <code>XML</code> and <code>JSON</code>.
 Hence, I will have to use <code>SolrClient::request</code> function to send a raw <code>XML</code> update request to the solr server. Here is a sample code of doing it in PHP.
-{% highlight php %}
+{% highlight php startinline %}
 $s = '';
 $s.= '<add>';
 for ($id = 1; $id <=1000; $id++){

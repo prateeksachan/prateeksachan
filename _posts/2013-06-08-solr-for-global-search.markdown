@@ -26,12 +26,10 @@ In the future, we will obviously make it flexible to avoid dependancy on server 
 
 The current official version of <code>php-pecl-solr</code> extension doesn't work with Solr4. There's a minute difference in the client constructor that makes it flexible to use for <code>Solr 3.x</code> or <code>Solr 4.x</code> 
 
-{% highlight ruby linenos%}
-<?php
+{% highlight php startinline %}
 $options = array( 'hostname' => 127.0.0.1 );
-$client = new SolrClient($options, "4.0");
-?>
-{%endhighlight%}
+$client = new SolrClient($options, '4.0');
+{% endhighlight %}
 
 However, [patch][solr-patch] is available that will be merged into the offical stable release in the future.
 
