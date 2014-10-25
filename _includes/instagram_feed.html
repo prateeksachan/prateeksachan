@@ -1,0 +1,7 @@
+<div class="instagram-feed">
+{% instagram %}
+	{{ item.likes.count }}
+    <a href="{{ item.link }}" target="_new" alt="{{ item.caption.text }}" title="{{ item.caption.text }}"><img src="{{ item.images.thumbnail.url }}" /></a>
+	}
+{% endinstagram %}
+</div>
