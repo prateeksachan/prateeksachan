@@ -13,4 +13,3 @@ According to history, I graduated from Indian Institute of Technology Delhi, Ind
 I also contribute to Open Source, namely [Drupal](https://drupal.org) and [Moodle](https://moodle.org).
 
 Feel free to contact me.
-{% include svg-icons.html %}

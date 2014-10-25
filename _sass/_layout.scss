@@ -21,6 +21,14 @@
     &:visited {
         color: $grey-color-dark;
     }
+
+    &:hover {
+        -webkit-transition: -webkit-transform .3s ease-out;
+        -moz-transition:    -moz-transform .3s ease-out;
+        -o-transition:      -o-transform .3s ease-out;
+        transition:         transform .3s ease-out;
+
+    }
 }
 
 .site-nav {
@@ -29,6 +37,15 @@
 
     .menu-icon {
         display: none;
+    }
+
+    a:hover {
+        color: $link-color;
+        -webkit-transition: -webkit-transform .3s ease-out;
+        -moz-transition:    -moz-transform .3s ease-out;
+        -o-transition:      -o-transform .3s ease-out;
+        transition:         transform .3s ease-out;
+
     }
 
     .page-link {
@@ -196,10 +213,34 @@
 }
 
 
+/**
+ * Home
+ */
+.home {
+    width: 70%;
+}
+
+/**
+ * Sidebar
+ */
+.sidebar {
+    width: 25%;
+}
+
+.sidebar li {
+    list-style: none;
+}
+
+.sidebar ul li {
+    font-size: $tiny-font-size;    
+}
 
 /**
  * Posts
  */
+.post {
+    width: 70%;
+}
 .post-header {
     margin-bottom: $spacing-unit;
 }
@@ -240,4 +281,8 @@
             font-size: 18px;
         }
     }
+}
+
+.instagram-feed {
+    font-size: 0;
 }
