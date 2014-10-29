@@ -1,15 +1,6 @@
-
-<a href="mailto:{{ site.email }}">{% include svg-icons/email.html %}
-</a>
-<a href="https://facebook.com/{{ site.facebook_username }}">{% include svg-icons/facebook.html %}
-    <span class="username"></span>
-</a>
-<a href="https://github.com/{{ site.github_username }}">{% include svg-icons/github.html %}
-  <span class="username"></span>
-</a>
-<a href="http://instagram.com/{{ site.instagram_username }}">{% include svg-icons/instagram.html %}
-    <span class="username"></span>
-</a>
-<a href="https://twitter.com/{{ site.twitter_username }}">{% include svg-icons/twitter.html %}
-  <span class="username"></span>
-</a>
+<a href="mailto:{{ site.email }}">{% include svg-icons/email.html %}</a>
+<a href="https://facebook.com/{{ site.facebook_username }}">{% include svg-icons/facebook.html %}</a>
+<a href="https://github.com/{{ site.github_username }}">{% include svg-icons/github.html %}</a>
+<a href="http://instagram.com/{{ site.instagram_username }}">{% include svg-icons/instagram.html %}</a>
+<a href="https://twitter.com/{{ site.twitter_username }}">{% include svg-icons/twitter.html %}</a>
+<a href="{{ "/feed.xml" | prepend: site.baseurl }}">{% include svg-icons/rss.html %}</a>
