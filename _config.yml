@@ -11,6 +11,8 @@ twitter_username: xan_ps
 github_username:  prateeksachan
 instagram_username: xan_ps
 facebook_username: prateek.sachan
+author:
+    twitter: xan_ps
 
 #links
 jeykll_link: http://jekyllrb.com/
@@ -20,3 +22,9 @@ markdown: kramdown
 paginate: 5
 paginate_path: 'blog/page:num'
 permalink: /blog/:year/:month/:day/:title/
+sharing:
+    provider: tweet
+    twitter:
+        size:
+        via: xan_ps
+        count:
