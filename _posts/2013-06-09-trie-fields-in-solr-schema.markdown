@@ -76,3 +76,5 @@ FADEDEAD
 Now, if solr has to search for <code>FADEDEAx</code> to <code>FADEDEAD</code>, using a precision step of <code>8</code> would result in going through all the <code>16</code> possibilities to find the record, but just one record in case of precision step of <code>4</code>. 
 
 So clearly, a small precision step makes the query fast but also increases the index size. Hence, I will have to test different cases to come out with the "perfect" <code>schema</code> for solr.
+
+Credits: [Mental Detritus: Grokking Solr Trie Fields](http://mentaldetritus.blogspot.in/2013/01/grokking-solr-trie-fields.html)
