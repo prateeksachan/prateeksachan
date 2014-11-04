@@ -227,7 +227,11 @@
     width: 25%;
 }
 
-.sidebar li {
+.sidebar #categories-list li {
+    list-style-type: square;
+}
+
+.sidebar #categories-list li ul li {
     list-style: none;
 }
 

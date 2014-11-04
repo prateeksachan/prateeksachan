@@ -11,14 +11,13 @@ This is my second year at GSoC and I'm excited to work with [Drupal][drupal] thi
 
 This time I'll be working on making an [Elasticsearch][elasticsearch] module for Drupla 8. Drupal 8 is still in development and hasn't been released yet as a stable version. There has been a huge improvement in D8 comapred to D7. Drupal 8 introduces file-based configuration management system and use of the Symfony2 framework.
 
-I've used [Elasticsearch Connector][elasticsearch-connector] module as a base and planned to port it to D8 with [Search API Sandbox][search-api] and Composer Manager[composer-manager] as dependency modules.
+I've used [Elasticsearch Connector][elasticsearch-connector] module as a base and planned to port it to D8 with [Search API Sandbox][search-api] and [Composer Manager][composer-manager] as dependency modules.
 
 Refer the [project page][project-page] about developments of the project.
-
-
 
 [drupal]: https://moodle.org/
 [elasticsearch]: http://www.elasticsearch.org/
 [elasticsearch-connector]: https://www.drupal.org/project/elasticsearch_connector
 [search-api]: https://www.drupal.org/sandbox/daeron/2091893
 [project-page]: https://www.drupal.org/sandbox/prateeksachan/2275583
+[composer-manager]: https://www.drupal.org/project/composer_manager
