@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello Jekyll. Bye Workpress"
+title:  "Hello Jekyll. Bye Wordpress"
 date:   2014-11-06 15:12:00
 categories: uncategorized
 tags: 
