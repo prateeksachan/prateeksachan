@@ -13,7 +13,7 @@ Well this particular post is dedicated to Data Structures. It will be the first 
 When integrating Apache Solr search engine, one of the most important files is <code>schema.xml</code>. A lot of effectiveness and optimization of the search depends upon it. The file contains details about the different fields of our documents that will be indexed, and the manner in which the indexing will take place.
 
 So, lets talk about <code>Trie</code> for a while. Suppose we have five words:
-{% highlight ruby %}
+{% highlight php %}
 tall
 tea
 tee
@@ -22,7 +22,7 @@ tom
 {% endhighlight %}
 
 The above five words could be implemented in the following manner:
-{% highlight ruby %}
+{% highlight php %}
 t--a--l--l
 |
 |--e--a
@@ -32,7 +32,7 @@ t--a--l--l
 |--i--m
 |
 \--o--m
-{% endhighlight ruby %}
+{% endhighlight %}
 
 Now, Solr uses this structure to index documents. Following is the declaration of <code>Trie</code> field types in <code>schema.xml</code>.
 
