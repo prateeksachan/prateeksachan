@@ -15,7 +15,7 @@ On the whole, it was an awesome project with immense learing experience for me, 
 
 The module currently works for the latest Drupal 8.0.x with [Search API sandbox][search-api] and uses the official Elasticsearch-php library. I've also included a set of Search API test cases.
 
-**EDIT**
+**UPDATE**
 
 The project was successfully merged in the [Elasticsearch Connector 8.x branch][elasticsearch-connector-8x-branch] which will be its new home. I'll keep updating the module on both project sandboxes with the changes reflected in Drupal 8 and Search API.
 
