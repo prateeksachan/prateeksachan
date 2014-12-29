@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Elasticsearch module for Drupal 8"
-date:   2014-08-18 15:12:00
+date:   2014-08-18 15:10:00
 categories: gsoc-2014
 tags: 
 - drupal
