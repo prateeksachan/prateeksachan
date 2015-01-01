@@ -2,13 +2,11 @@
 title: prateek sachan
 email: ps@prateeksachan.com
 timezone: Asia/Kolkata
-copyright: > # this means to ignore newlines until "baseurl:"
-  &copy; 2014 Prateek Sachan.
-
+copyright: "&copy; 2015 Prateek Sachan."
 description: "Prateek Sachan is a web application developer based in Delhi, India working on PHP, Javascript, Python, Solr"
 keywords: "Prateek Sachan, web application developer, Delhi, Zomato, PHP, Solr, Drupal, Moodle, Elasticsearch, IIT Delhi, Indian Institute of Technology Delhi"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://prateeksachan.com" # the base hostname & protocol for your site
+baseurl: ""
+url: "http://prateeksachan.com"
 twitter_username: xan_ps
 github_username:  prateeksachan
 instagram_username: xan_ps
@@ -19,11 +17,14 @@ author:
 #links
 jeykll_link: http://jekyllrb.com/
 vim_link: http://www.vim.org/
+
 # Build settings
 markdown: kramdown
 paginate: 5
 paginate_path: '/blog/page:num'
 permalink: /blog/:year/:month/:day/:title/
+
+#social media
 sharing:
     provider: tweet
     twitter:
