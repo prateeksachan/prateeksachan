@@ -6,7 +6,7 @@
     <title>{% if page.title %}{{ page.title | downcase }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
     <meta name="keywords" content="{{ site.keywords }}">
-    <meta name="google-site-verification" content="{{ google_site_verification }}" />
+    <meta name="google-site-verification" content="{{ site.google_site_verification }}" />
 
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
