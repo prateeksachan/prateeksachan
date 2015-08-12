@@ -32,3 +32,7 @@ sharing:
         size:
         via: xan_ps
         count:
+
+#sitemap
+gems:
+  - jekyll-sitemap
