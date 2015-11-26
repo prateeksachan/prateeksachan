@@ -35,4 +35,6 @@ sharing:
 
 #sitemap
 gems:
+  - jekyll-paginate
   - jekyll-sitemap
+
