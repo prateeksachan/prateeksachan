@@ -37,4 +37,5 @@ sharing:
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - instagram
 
