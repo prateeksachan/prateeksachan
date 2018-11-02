@@ -21,9 +21,20 @@ vim_link: http://www.vim.org/
 
 # Build settings
 markdown: kramdown
-paginate: 5
-paginate_path: '/blog/page:num'
-permalink: /blog/:year/:month/:day/:title/
+
+#paginate: 5
+#paginate_path: '/blog/page:num'
+#permalink: /blog/:year/:month/:day/:title/
+
+pagination:
+  enabled: true
+  per_page: 5
+  paginate_path: '/blog/page:num'
+  title: ' - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
 
 #social media
 sharing:
@@ -34,8 +45,25 @@ sharing:
         count:
 
 #sitemap
-gems:
-  - jekyll-paginate
+plugins:
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - instagram
 
+autopages:
+  enabled: true
+
+  # Category pages, omit entire config element to disable
+  categories: 
+    enabled: false
+
+  # Collection pages, omit to disable
+  collections:
+    enabled: false
+
+  # Tag pages, omit to disable
+  tags:
+    layouts: 
+      - 'tags.html'
+    title: 'Posts tagged with :tag' # :tag is replaced by the tag name
+    permalink: '/tag/:tag'

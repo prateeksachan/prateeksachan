@@ -52,9 +52,10 @@ module Jekyll
     end
 
     def render(context)
-      context.registers[:instagram] ||= Hash.new(0)
+      @accesstoken = '1387607407.08badb0.efcaf9eb65d9418aa1f471f4f7af9871'
+      context.registers[:instagram] ||= Hash.new(:count => 0)
 
-    collection = InstagramLoader.photos(@accesstoken)
+      collection = InstagramLoader.photos(@accesstoken)
 
       length = collection.length
       result = []
@@ -74,7 +75,7 @@ module Jekyll
             'first' => (index == 0),
             'last' => (index == length - 1) }
 
-          result << render_all(@nodelist, context)
+          result << render(@nodelist, context)
         end
       end
       result
