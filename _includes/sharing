@@ -1,7 +1,0 @@
-{% if site.sharing.provider %}
- 
-  {% case site.sharing.provider %}
-	{% when "tweet" %}
-  		{% include sharing_providers/twitter %}
-  {% endcase %}
-{% endif %}

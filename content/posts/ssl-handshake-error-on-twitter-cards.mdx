@@ -1,0 +1,38 @@
+---
+title: "SSL Handshake error on Twitter Cards"
+date: "2015-10-27"
+category: "Uncategorized"
+tags: ["ssl", "security", "twitter"]
+description: "I came across an unusual issue while trying to share a URL to fetch a Twitter Card."
+---
+I came across an unusual issue while trying to share a URL to fetch a [Twitter Card][twitter-card].
+
+```php
+ERROR: Fetching the page failed because SSL handshake error.
+```
+
+The domain already had a comodo SSL Certificate. And it was working fine.
+A quick check of the SSL certificate on [Qualys SSL Labs][quality-ssl-labs], showed that the domain's SSL certificate had a really low rating.
+
+There were many issues that had to be incorporated to increase the certificate's rating from `C` to `A`.
+
+Following are the changes I made to my server's certificate settings:
+
+
+- Turn off SSLv2 and SSLv3:
+`SSLProtocol all -SSLv3 -SSLv2`
+
+- Modify Cipher suites:
+`SSLHonorCipherOrder on`
+`SSLCipherSuite "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA !RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS"`
+
+The above changes need to be made in the `ssl.conf` file.
+
+However, these changes might slow down your website and pose issues for Googlebot during indexing and Pagespeed insights as `curl` might fail to get the contents of your website.
+
+Please refer thh [Mozilla wiki][mozilla-wiki] docs for other changes that need to be updated with regarding SSL security.
+
+
+[twitter-card]: https://dev.twitter.com/cards/overview
+[quality-ssl-labs]: https://www.ssllabs.com/ssltest
+[mozilla-wiki]: https://wiki.mozilla.org/Security

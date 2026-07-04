@@ -1,0 +1,77 @@
+---
+title: "Trie fields in Solr Schema"
+date: "2013-06-09"
+category: "GSoC 2013"
+tags: ["moodle", "solr", "trie"]
+description: "Well this particular post is dedicated to Data Structures. It will be the first time I would be implementing Trie in real-life situations (apart from the college assignments), h…"
+---
+Well this particular post is dedicated to Data Structures. It will be the first time I would be implementing `Trie` in real-life situations (apart from the college assignments), hence I thought that a post was in immediate order.
+
+When integrating Apache Solr search engine, one of the most important files is `schema.xml`. A lot of effectiveness and optimization of the search depends upon it. The file contains details about the different fields of our documents that will be indexed, and the manner in which the indexing will take place.
+
+So, lets talk about `Trie` for a while. Suppose we have five words:
+```php
+tall
+tea
+tee
+tim
+tom
+```
+
+The above five words could be implemented in the following manner:
+```php
+t--a--l--l
+|
+|--e--a
+|  |
+|  \--e
+|
+|--i--m
+|
+\--o--m
+```
+
+Now, Solr uses this structure to index documents. Following is the declaration of `Trie` field types in `schema.xml`.
+
+```ruby
+<fieldType name="tint" class="solr.TrieIntField" precisionStep="8" positionIncrementGap="0"/>
+<fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" positionIncrementGap="0"/>
+<fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" positionIncrementGap="0"/>
+<fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" positionIncrementGap="0"/>
+```
+
+Suppose, I want to index the integer `4208909997`. When Solr indexes this integer it saves the `hex` equivalents at different precision levels.
+(`FADEDEAD` = `4208909997` in `hex`) 
+
+A `precisionStep="12"` would result in:
+```ruby
+FA000000
+FADED000
+FADEDEAD
+```
+
+A `precisionStep="8"` would result in:
+```ruby
+FA000000
+FADE0000
+FADEDE00
+FADEDEAD
+```
+
+A `precisionStep="8"` would result in:
+```ruby
+F0000000
+FA000000
+FAD00000
+FADE0000
+FADED000
+FADEDE00
+FADEDEA0
+FADEDEAD
+```
+
+Now, if solr has to search for `FADEDEAx` to `FADEDEAD`, using a precision step of `8` would result in going through all the `16` possibilities to find the record, but just one record in case of precision step of `4`. 
+
+So clearly, a small precision step makes the query fast but also increases the index size. Hence, I will have to test different cases to come out with the "perfect" `schema` for solr.
+
+Credits: [Mental Detritus: Grokking Solr Trie Fields](http://mentaldetritus.blogspot.in/2013/01/grokking-solr-trie-fields.html)

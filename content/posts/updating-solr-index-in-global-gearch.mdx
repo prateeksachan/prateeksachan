@@ -1,0 +1,69 @@
+---
+title: "Updating Solr Index in Global Search"
+date: "2013-06-19"
+category: "GSoC 2013"
+tags: ["moodle", "solr"]
+description: "Previous week, I started coding the admin page for Global Search. Here are the three indexing configurations that I've planned to implement:"
+---
+Previous week, I started coding the `admin` page for Global Search. Here are the three indexing configurations that I've planned to implement: 
+
+- Adding new documents. (This will be written such that the indexing is resumed from a previous run).
+
+- Deleting index.  
+
+- Updating index for the updated records
+
+For updating index pertaining to update/change in a record, `solr` gives us two options:
+
+- Treat the "updated" record as a whole new `SolrDocument` and re-index the complete document.
+
+- Perform a partial update by re-indexing only that field which was updated.
+
+The first approach outlined above is pretty simple. The `iterator` will return a recordset having `timemodified` from a previous index run. And, those records will be accordingly re-indexed. [As implemented by my mentor Tomasz earlier. [See wiki][wiki].
+```php
+function mod_get_search_iterator($from = 0) {
+  global $DB;
+  $sql = "SELECT id, modified FROM {mod_table} WHERE modified >= ? ORDER BY modified ASC";
+  return $DB->get_recordset_sql($sql, array($from));
+}
+```
+
+The second approach was [recently released][solr-pl] by Solr. It could be very useful where thousands of documents may have been updated at once, and the first approach consumes a lot of time.
+
+Lets, take an example. Suppose, we have `1000` books in Moodle stored in `courseid : 1`. The teacher/admin imports all the books to another course, say `courseid : 2`. So re-indexing all the 1000 books might not be very useful here. All we need to do is update only `field: 'courseid'` of all the books.
+
+Solr supports several modifiers that atomically update values of a document.
+
+`set` – set or replace a particular value, or remove the value if null is specified as the new value
+`add` – adds an additional value to a list
+`inc` – increments a numeric value by a specific amount
+
+However, there's no specific `PHP` approach of doing it but only `XML` and `JSON`.
+Hence, I will have to use `SolrClient::request` function to send a raw `XML` update request to the solr server. Here is a sample code of doing it in PHP.
+```php
+$s = '';
+$s.= '<add>';
+for ($id = 1; $id <=1000; $id++){
+	$s.= '<doc>';
+	$s.= '<field name="id">' . $id . '</field>';
+	$s.= '<field name="courseid" update="set">2</field>';
+	$s.= '</doc>';
+}
+$s.= '</add>';
+```
+
+Followed by the following commands:
+```php
+$client->request($s);
+$client->commit();
+$client->optimize();
+```
+
+
+One thing has to be kept in mind that the string above should be less than `2MB` as defined in `solrconfig.xml`:
+`multipartUploadLimitInKB="2048000"`. Running the above code resulted in a string of `~80KB`, so we could easily use it for updating fileds in a large set of documents.
+
+However, I've to discuss this second approach with my mentors which I will probably do this week on how to implement this in Global Search.
+
+[wiki]: http://docs.moodle.org/dev/Global_Search#mod_get_search_iterator.28.24from.3D0.29
+[solr-pl]: http://solr.pl/en/2012/07/09/solr-4-0-partial-documents-update/

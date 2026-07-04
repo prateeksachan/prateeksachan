@@ -1,0 +1,43 @@
+---
+title: "Indexing Rich Documents in Solr"
+date: "2013-07-15"
+category: "GSoC 2013"
+tags: ["moodle", "solr", "tika"]
+description: "This week I integrated Apache Tika into Moodle to support indexing of Rich Documents like .PDF, .DOC, .PPT etc. Solr's ExtractingRequestHandler uses Tika allowing users to uploa…"
+---
+This week I integrated Apache Tika into Moodle to support indexing of Rich Documents like `.PDF`, `.DOC`, `.PPT` etc. Solr's [ExtractingRequestHandler][extracting-request-handler] uses Tika allowing users to upload binary files to Solr and have Solr extract text from it and then index it, making them searchable.
+
+One has to send the file to Solr via `HTTP POST`. The following `cURL` request does the work:
+
+`curl "http://localhost:8983/solr/update/extract?literal.id=1&commit=true" -F "myfile=@ps.pdf"`
+
+- `ps.pdf` file is sent to Solr to extract content from it.
+- `literal.id=1`: assigns the `id=1` to the Solr Document thus created.
+- `commit=true`: Commits the changes to the solr index.
+- `myfile=@ps.pdf`: This needs to be a valid relative or absolute path.
+
+Refer the [wiki][extracting-request-handler] for more options on `ExtractingRequestHandler`
+
+Now, using the `PECL PHP SOLR` client in Moodle, there isn't a way to get the extracted content and add it to solr document's field. The `cURL` request creates an all-new Solr Document specifically for the files and adds content to that Solr Document's fields.
+Also, the `get_content_file_location()` function of Moodle that stores the absolute filepath of files is protected. 
+
+So, keeping the above things in mind I had to come up with the following logic for including the feature of indexing Rich Documents via `ExtractingRequestHandler` in Global Search.
+![indexing-rich-documents-in-solr](/assets/images/indexing-rich-documents-in-solr_1.png)
+
+The access rights will be checked by extracting the `$id` of the Solr Document and passing it to the forum's access check function. [Full code][code-link].
+
+And, here's the code that I've written for the Forum Module.
+```php
+$url = search_curl_url(); // returns SOLR_SERVER_HOSTNAME . ':' . SOLR_SERVER_PORT . '/solr/update/extract?'
+$url .= 'literal.id=' . 'forum_file_' . $id . '&literal.module=forum&literal.type=3&literal.courseid=' . $post->course;
+$params = array();
+$params[$id] = $file; // adds the $file stdClass object into $params array
+$curl->post($url, $params); // sets CURLOPT_POST = 1
+                            // sets CURLOPT_POSTFIELDS = array ($id => '@' . $filepath) via add_to_curl_request
+                            // finally posts this curl request
+```
+
+The above code sends the external files to Solr for extracting content and creating new Solr Documents. I'm not committing the Documents after each `cURL` request as it would take a lot of time. Hence, after all the documents have been added, I'm execute `$client->commit` at the end.
+
+[extracting-request-handler]: http://wiki.apache.org/solr/ExtractingRequestHandler
+[code-link]: https://github.com/prateeksachan/moodle/blob/gs2/mod/forum/lib.php#L8572
